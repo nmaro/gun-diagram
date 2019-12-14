@@ -1,0 +1,38 @@
+{
+  "name": "gun-diagram",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "scripts": {
+    "clean": "rm public/bundle.js",
+    "build-dev": "webpack -d --mode development",
+    "build": "webpack -p --mode production",
+    "start": "webpack-dev-server --hot --mode development"
+  },
+  "dependencies": {
+    "@babel/preset-modules": "^0.1.1",
+    "gun": "^0.2019.930",
+    "moment": "^2.24.0",
+    "nicks-gun-utils": "^2.4.1",
+    "react": "^16.11.0",
+    "react-dnd": "^10.0.2",
+    "react-dnd-html5-backend": "^10.0.2",
+    "react-dom": "^16.11.0",
+    "react-hot-loader": "^4.12.16",
+    "react-textarea-autosize": "^7.1.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.7.2",
+    "@babel/preset-react": "^7.7.0",
+    "@hot-loader/react-dom": "^16.11.0+4.12.16",
+    "babel-loader": "^8.0.6",
+    "css-loader": "^3.2.0",
+    "style-loader": "^1.0.0",
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.10",
+    "webpack-dev-server": "^3.9.0"
+  }
+}
