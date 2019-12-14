@@ -51,25 +51,33 @@ export const GunDiagram = ({ id, priv, epriv }) => {
         put(
           [itemId, "x", x],
           [itemId, "y", y],
-          [`${id}.items`, key, { "#": itemId }],
-          [id, "updated", +new Date()],
-          [id, "lastUpdate", "New item"]
+          [`${id}.items`, key, { "#": itemId }]
         );
 
         return itemId;
       }}
       onAddRelationship={(source, destination) =>
-        put([
-          `${getId(source)}.relationships`,
-          getKey(getId(destination)),
-          {
-            "#": getId(destination)
-          }
-        ])
+        put(
+          [
+            `${getId(source)}.relationships`,
+            getKey(getId(destination)),
+            {
+              "#": getId(destination)
+            }
+          ],
+          [id, "updated", +new Date()],
+          [id, "lastUpdate", `"${source.name}" -> "${destination.name}"`]
+        )
       }
       onSetTitle={title => put([id, "title", title])}
       onMoveItem={(itemId, x, y) => put([itemId, "x", x], [itemId, "y", y])}
-      onSetItemName={(itemId, name) => put([itemId, "name", name])}
+      onSetItemName={(itemId, name) =>
+        put(
+          [itemId, "name", name],
+          [id, "updated", +new Date()],
+          [id, "lastUpdate", name]
+        )
+      }
       onDeleteItem={itemId => put([`${id}.items`, getKey(itemId), null])}
     />
   );
