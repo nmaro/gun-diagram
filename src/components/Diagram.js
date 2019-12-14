@@ -389,8 +389,8 @@ const getRect = (item, ctrl, moving, pointer, origin) => {
   let [x, y, w, h] = [
     item.x || 0,
     item.y || 0,
-    item.width || 160,
-    item.height || 60
+    item.width || 120,
+    item.height || 50
   ];
   const id = getId(item);
   if (!ctrl && moving && moving[0] && getId(moving[0]) === id) {
