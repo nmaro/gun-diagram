@@ -41,6 +41,9 @@ export const Diagram = ({
     <>
       {editTitle ? (
         <form
+          style={{
+            position: "absolute"
+          }}
           onSubmit={e => {
             e.preventDefault();
             onSetTitle(title.current.value);
@@ -123,16 +126,6 @@ export const Diagram = ({
           )}
           {diagram.items.map(item => (
             <React.Fragment key={getId(item)}>
-              <Item
-                item={item}
-                onSetItemName={onSetItemName}
-                onDeleteItem={onDeleteItem}
-                moving={moving}
-                pointer={pointer}
-                ctrl={ctrl}
-                setMoving={setMoving}
-                origin={origin}
-              />
               {item.relationships.map(destination => (
                 <RelationshipArrow
                   key={getId(destination)}
@@ -146,6 +139,18 @@ export const Diagram = ({
                 />
               ))}
             </React.Fragment>
+          ))}
+          {diagram.items.map(item => (
+            <Item
+              item={item}
+              onSetItemName={onSetItemName}
+              onDeleteItem={onDeleteItem}
+              moving={moving}
+              pointer={pointer}
+              ctrl={ctrl}
+              setMoving={setMoving}
+              origin={origin}
+            />
           ))}
         </svg>
         {diagram.items.map(item => (
